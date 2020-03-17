@@ -16,9 +16,11 @@ class App extends Component {
       </div>
     */}
     <label htmlFor="Name">Name: </label>
-    <input type="text" id="Name" placeholder="type your name" defaultValue="rehan"></input>
+    <input type="text" id="Name" placeholder="Type your name here" defaultValue="rehan"></input>
       </div>
   );
+
+
        }
 }
 
