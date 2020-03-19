@@ -4,20 +4,31 @@ import React, {
 
 import Header from "./Header";
 import "./App.css";
+
 class App extends Component {
- 
+  deleteHandler(msg){
+    alert(msg);
+  }
+  constructor()
+  {
+    super();
+    this.state={
+      subscriberListToShow:  [ ]
+      
+    }
+  }
   render() {
-    let subscribers=[
-      {
-        id:1,name:"rehan",phone:"9996305732"
-      },
-      {
-       id:2, name:"harshit",phone:"8572829003"
-      }
-    ]
+    // let subscribers=[
+    //   {
+    //     id:1,name:"rehan",phone:"9996305732"
+    //   },
+    //   {
+    //    id:2, name:"harshit",phone:"8572829003"
+    //   }
+    // ]
         return(
           <div className="component-container">
-           <Header/>
+           <Header heading="phone-directory"/>
 
 
           <div className="component-body-container">
@@ -29,12 +40,12 @@ class App extends Component {
             </div>
         
 {
-  subscribers.map(sub=>{
+  this.state.subscriberListToShow.map(sub=>{
     return <div key={sub.id} className="grid-container">
       <span className="grid-item">{sub.name}</span>
       <span className="grid-item">{sub.phone}</span>
       <span className="grid-item action-btn-container">
-                  <button className="custom-btn delete-btn">Delete</button>
+                  <button className="custom-btn delete-btn" onClick={this.deleteHandler.bind(this,"delelteclicked")}>Delete</button>
                 </span>
       </div>
   })
