@@ -3,9 +3,9 @@ import React, {
 } from 'react';
 
 import Header from "./Header";
-import "./App.css";
+import "./ShowSubscribers.css";
 
-class App extends Component {
+class ShowSubscribers extends Component {
   deleteHandler(msg){
     alert(msg);
   }
@@ -14,9 +14,10 @@ class App extends Component {
     super();
     this.state={
       subscriberListToShow:  [ ]
-      
     }
+  
   }
+  
   render() {
     // let subscribers=[
     //   {
@@ -40,7 +41,7 @@ class App extends Component {
             </div>
         
 {
-  this.state.subscriberListToShow.map(sub=>{
+  this.props.subscribersList.map(sub=>{
     return <div key={sub.id} className="grid-container">
       <span className="grid-item">{sub.name}</span>
       <span className="grid-item">{sub.phone}</span>
@@ -65,4 +66,4 @@ class App extends Component {
 }
 }
 
-export default App;
+export default ShowSubscribers;
