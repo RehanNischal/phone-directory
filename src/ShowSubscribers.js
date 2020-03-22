@@ -6,17 +6,9 @@ import Header from "./Header";
 import "./ShowSubscribers.css";
 
 class ShowSubscribers extends Component {
-  deleteHandler(msg){
-    alert(msg);
-  }
-  constructor()
-  {
-    super();
-    this.state={
-      subscriberListToShow:  [ ]
-    }
-  
-  }
+onDeletedClicked=(subscriberId)=>{
+  this.props.deleteSubscriberHandler(subscriberId);
+}
   
   render() {
     // let subscribers=[
@@ -46,7 +38,7 @@ class ShowSubscribers extends Component {
       <span className="grid-item">{sub.name}</span>
       <span className="grid-item">{sub.phone}</span>
       <span className="grid-item action-btn-container">
-                  <button className="custom-btn delete-btn" onClick={this.deleteHandler.bind(this,"delelteclicked")}>Delete</button>
+                  <button className="custom-btn delete-btn" onClick={this.onDeletedClicked.bind(this,sub.id)}>Delete</button>
                 </span>
       </div>
   })
