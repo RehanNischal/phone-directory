@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import AddSubscribers from './AddSubscribers';
 import ShowSubscribers from './ShowSubscribers';
-
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 class PhoneDirectory extends Component{
     constructor(){
         super();
        this.state={
            subscribersList: [
                {
-                   id: 1,name: 'Rehan',Phone: 9996305732
+                   id: 1,name: 'Rehan',phone: '9996305732'
                },
                {
-                id: 2,name: 'Harshit',Phone: 8572829003
-            }
+                id: 2,name: 'Harshit',phone: '8572829003'
+                }
            ]
        }
     }
@@ -31,8 +31,13 @@ class PhoneDirectory extends Component{
     }
     render(){
         return(
-//<AddSubscribers addSubscriberHandler={this.addSubscriberHandler}/>
-<ShowSubscribers subscribersList={this.state.subscribersList}/>
+        // <AddSubscribers addSubscriberHandler={this.addSubscriberHandler}/>
+   <Router>
+       <div className="main-container">
+       <Route exact path='/' render={(props)=> <ShowSubscribers {...props} subscribersList = {this.state.subscribersList} />} />
+       <Route exact path='/addSubscribers' render={({history},props)=> <AddSubscribers history={history}{...props} addSubscriberHandler = {this.addSubscriberHandler} />} />
+       </div>
+   </Router> 
         )
     }
 }
